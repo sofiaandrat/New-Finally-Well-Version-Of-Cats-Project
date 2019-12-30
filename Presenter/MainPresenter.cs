@@ -32,9 +32,6 @@ namespace Presenter
         private void PushRegistration()
         {
             RegistrationPresenter registrationPresenter = new RegistrationPresenter(kernel, kernel.Get<IRegistrationView>(), kernel.Get<IRegistrationService>());
-            
-            //var registrationView = kernel.Get<IRegistrationView>();
-           // registrationView.Show();
         }
 
         private void CheckLogin()

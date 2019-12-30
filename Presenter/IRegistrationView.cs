@@ -8,6 +8,10 @@ namespace Presenter
 {
     public interface IRegistrationView:IView
     {
-        //event Action PushRegistration;
+        event Action PushRegistration;
+        string GetEmail();
+        string GetPassword();
+        string GetLogin();
+        void ShowWrongLoginLabel();
     }
 }

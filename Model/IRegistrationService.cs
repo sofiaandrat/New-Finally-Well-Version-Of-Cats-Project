@@ -8,6 +8,7 @@ namespace Model
 {
     public interface IRegistrationService
     {
-        void CheckRegistration();
+        event Action UserCantBeRegister;
+        void CheckRegistration(string name, string email, string password);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,14 @@ namespace CatsBeautifulVersion
         private void Users_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        public void ShowRegistrationQueue(DataTable registrationQueue)
+        {
+            Registration.Dispatcher.BeginInvoke(new Action(delegate ()
+            {
+                Registration.ItemsSource = registrationQueue.DefaultView;
+            }));
         }
     }
 }

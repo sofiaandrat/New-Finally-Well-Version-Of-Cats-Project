@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPresenter.cs" />
     <Compile Include="IAdminView.cs" />
     <Compile Include="IMainView.cs" />
     <Compile Include="IRegistrationView.cs" />

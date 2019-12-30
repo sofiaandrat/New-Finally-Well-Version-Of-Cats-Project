@@ -18,15 +18,6 @@ namespace Model.DataBase
             mutex = new Mutex();
         }
 
-        private string hash(string password)
-        {
-            byte[] byteArray = Encoding.UTF8.GetBytes(password);
-            MemoryStream stream = new MemoryStream(byteArray);
-            var md5 = new MD5CryptoServiceProvider();
-            var md5data = md5.ComputeHash(stream);
-            return Encoding.UTF8.GetString(md5data);
-        }
-
         public List<int> Login(string login, string password)
         {
             mutex.WaitOne();

@@ -9,13 +9,18 @@ namespace Model
 {
     public class RegistrationService:IRegistrationService
     {
-        private event Action UserCantBeRegister;
-        public RegistrationService() { }
-        public void CheckRegistration()
+        public event Action UserCantBeRegister;
+        private RegistrationDataBase registrationDataBase = new RegistrationDataBase();
+        public RegistrationService() 
         {
-            RegistrationDataBase registrationDataBase = new RegistrationDataBase();
-           /* if (!registrationDataBase.IsItFree(name, email))
-                UserCantBeRegister?.Invoke();*/
+            this.registrationDataBase = new RegistrationDataBase();
+        }
+        public void CheckRegistration(string name, string email, string password)
+        {
+            if (registrationDataBase.IsItFree(name, email))
+                registrationDataBase.Insert(name, email, password);
+            else
+                UserCantBeRegister?.Invoke();
         }
     }
 }

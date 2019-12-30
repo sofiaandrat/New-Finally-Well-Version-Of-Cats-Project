@@ -19,12 +19,18 @@ namespace Presenter
             this.view = view;
             this.service = service;
             this.view.Show();
-           // this.view.PushRegistration += PushRegistration;
+            this.view.PushRegistration += PushRegistration;
+            this.service.UserCantBeRegister += WrongRegisterData;
         }
 
         private void PushRegistration()
         {
-            
+            service.CheckRegistration(view.GetLogin(), view.GetEmail(), view.GetPassword());
+        }
+
+        private void WrongRegisterData()
+        {
+            view.ShowWrongLoginLabel();
         }
     }
 }

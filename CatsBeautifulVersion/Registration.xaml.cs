@@ -20,15 +20,24 @@ namespace CatsBeautifulVersion
     /// </summary>
     public partial class Registration : Window, IRegistrationView, IView
     {
-        private Action PushRegistration;
+        public event Action PushRegistration;
         public Registration()
         {
             InitializeComponent();
-            //RegistrationPresenter registrationPresenter = new RegistrationPresenter();
         }
+
         private void Register_Click(object sender, RoutedEventArgs e)
         {
             PushRegistration?.Invoke();
+        }
+
+        public string GetEmail() => email.Text;
+        public string GetLogin() => Login.Text;
+        public string GetPassword() => Password.Password;
+
+        public void ShowWrongLoginLabel()
+        {
+            Login_in_use.Visibility = Visibility.Visible;
         }
     }
 }
