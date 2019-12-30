@@ -17,8 +17,10 @@ namespace Presenter
         public MainPresenter(IKernel kernel, IMainView view, ILoginService service) 
         {
             this.kernel = kernel;
-            kernel.Bind<ILoginService>().To<LoginService>();
+           // kernel.Bind<ILoginService>().To<LoginService>();
+            kernel.Bind<IRegistrationService>().To<RegistrationService>();
             kernel.Bind<IUserProfiler>().To<UserProfiler>();
+
             this.view = view;
             this.service = service;
             this.view.PushRegistration += PushRegistration;
@@ -29,8 +31,10 @@ namespace Presenter
 
         private void PushRegistration()
         {
-            var registrationView = kernel.Get<IRegistrationView>();
-            registrationView.Show();
+            RegistrationPresenter registrationPresenter = new RegistrationPresenter(kernel, kernel.Get<IRegistrationView>(), kernel.Get<IRegistrationService>());
+            
+            //var registrationView = kernel.Get<IRegistrationView>();
+           // registrationView.Show();
         }
 
         private void CheckLogin()
@@ -46,7 +50,7 @@ namespace Presenter
 
         private void createUserProfiler()
         {
-            UserProfilerPresenter userProfilerPresenter = new UserProfilerPresenter();
+            UserProfilerPresenter userProfilerPresenter = new UserProfilerPresenter(kernel, service.GiveUserInformation());
         }
     }
 }

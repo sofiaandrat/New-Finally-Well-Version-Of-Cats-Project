@@ -27,7 +27,7 @@ namespace Model.DataBase
             return Encoding.UTF8.GetString(md5data);
         }
 
-        public List<int> Login(string password, string login)
+        public List<int> Login(string login, string password)
         {
             mutex.WaitOne();
             string hash_password = hash(password);

@@ -5,18 +5,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ninject;
+using System.Threading;
 
 namespace Model
 {
     public class LoginService:ILoginService
     {
         private UserDataBase userDataBase;
+        private readonly StandardKernel kernel;
+        private readonly IUserProfiler iuserProfiler;
         //private event Action OpenUserProfiler;
         public event Action WrongLoginData;
         public event Action LoginWasSuccesful;
+        private UserProfiler userProfiler;
+        private Mutex mutex;
         public LoginService(UserDataBase userDataBase)
         {
+            kernel = new StandardKernel();
+            kernel.Bind<IUserProfiler>().To<UserProfiler>();
             this.userDataBase = userDataBase;
+            userProfiler = null;
+            //iuserProfiler = kernel.Get<IUserProfiler>();
+            //iuserProfiler.IWasBorn += UserWasOpen;
         }
 
         public void CheckLogin(string name, string password)
@@ -27,8 +38,8 @@ namespace Model
                 WrongLoginData?.Invoke();
             } else
             {
-                UserProfiler userProfiler = new UserProfiler(loginRequest[0], loginRequest[1]);
-                userProfiler.IWasBorn += UserWasOpen;
+                userProfiler = new UserProfiler(loginRequest[0], loginRequest[1]);
+                UserWasOpen();
             }
         }
 
@@ -36,5 +47,7 @@ namespace Model
         {
             LoginWasSuccesful?.Invoke();
         }
+
+        public UserProfiler GiveUserInformation() => userProfiler;
     }
 }

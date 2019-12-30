@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.Elements;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,6 @@ namespace Model
         void CheckLogin(string name, string password);
         event Action WrongLoginData;
         event Action LoginWasSuccesful;
+        UserProfiler GiveUserInformation();
     }
 }

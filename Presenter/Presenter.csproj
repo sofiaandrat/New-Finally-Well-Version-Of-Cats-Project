@@ -54,8 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAdminView.cs" />
     <Compile Include="IMainView.cs" />
     <Compile Include="IRegistrationView.cs" />
+    <Compile Include="ITesterView.cs" />
+    <Compile Include="IUserProfilerView.cs" />
+    <Compile Include="IUserView.cs" />
     <Compile Include="IView.cs" />
     <Compile Include="MainPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,7 +8,6 @@ namespace Model.Elements
 {
     public class UserProfiler:IUserProfiler
     {
-        public event Action IWasBorn;
         private int typeId;
         public int TypeId
         {
@@ -24,7 +23,6 @@ namespace Model.Elements
         {
             this.typeId = typeId;
             this.id = id;
-            IWasBorn?.Invoke();
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Presenter
             this.kernel = kernel;
             this.view = view;
             this.service = service;
+            this.view.Show();
            // this.view.PushRegistration += PushRegistration;
         }
 

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.Elements
+namespace Presenter
 {
-    public interface IUserProfiler
+    public interface IUserView:IUserProfilerView
     {
     }
 }
