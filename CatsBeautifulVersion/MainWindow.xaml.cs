@@ -31,6 +31,10 @@ namespace CatsBeautifulVersion
             InitializeComponent();
             kernel = new StandardKernel();
             kernel.Bind<IRegistrationView>().To<Registration>();
+            kernel.Bind<ILoginService>().To<LoginService>();
+            kernel.Bind<ITesterView>().To<TesterView>();
+            kernel.Bind<IUserView>().To<UserView>();
+            kernel.Bind<IAdminView>().To<AdminView>();
             MainPresenter mainPresenter = new MainPresenter(kernel, this, kernel.Get<ILoginService>());
         }
         private void Registration_Click(object sender, RoutedEventArgs e)

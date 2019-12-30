@@ -1,0 +1,35 @@
+﻿<Window x:Class="CatsBeautifulVersion.UserView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CatsBeautifulVersion"
+        mc:Ignorable="d"
+        Title="UserView" Height="450" Width="800">
+    <Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="420" Margin="0,0,-0.4,0" Stroke="Black" VerticalAlignment="Top" Width="794"/>
+        <Button x:Name="AddFeeder" Content="Add new bowl" HorizontalAlignment="Left" Margin="26,282,0,0" VerticalAlignment="Top" Width="215" Height="61" BorderBrush="Black" Foreground="Black" Background="#FFA2DDB0" FontFamily="Yu Gothic UI" FontSize="20"/>
+        <Button x:Name="LogOut" Content="Log out" HorizontalAlignment="Left" Margin="689,10,0,0" VerticalAlignment="Top" Width="95" Height="29" Background="#FFC25454" BorderBrush="Black" FontSize="20" FontFamily="Yu Gothic UI"/>
+        <DataGrid x:Name="Feeders" HorizontalAlignment="Left" Height="212" Margin="26,53,0,0" VerticalAlignment="Top" Width="215" Background="#FFEDFFEC" Opacity="0.8" BorderBrush="#FF7295B7" SelectionChanged="Feeders_SelectionChanged" ItemsSource="{Binding Path=Customers}"
+                  SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}"/>
+        <DataGrid x:Name="Tags" HorizontalAlignment="Left" Height="212" Margin="276,53,0,0" VerticalAlignment="Top" Width="207" Background="#FFEDFFEC" SelectionChanged="Tags_SelectionChanged" ItemsSource="{Binding Path=Customers}"
+                  SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}"/>
+        <Button x:Name="AddTag" Content="Add tag" HorizontalAlignment="Left" Height="29" Margin="276,290,0,0" VerticalAlignment="Top" Width="177" Cursor="Hand">
+            <Button.Background>
+                <ImageBrush ImageSource="D:\лабы универ\лабы шарпы\FatCat\add_tag_button.jpg"/>
+            </Button.Background>
+        </Button>
+        <DataGrid HorizontalAlignment="Left" Height="228" Margin="521,53,0,0" VerticalAlignment="Top" Width="222" Background="#FFEDFFEC"/>
+        <Button x:Name="AddSchedule" Content="Add schedule" HorizontalAlignment="Left" Height="29" Margin="521,290,0,0" VerticalAlignment="Top" Width="177" Cursor="Hand">
+            <Button.Background>
+                <ImageBrush ImageSource="D:\лабы универ\лабы шарпы\FatCat\add_tag_button.jpg"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="MyFeeders" Content="Feeders" HorizontalAlignment="Left" Margin="94,23,0,0" VerticalAlignment="Top" Width="92" FontSize="20"/>
+        <Label x:Name="MyTags" Content="Tags" HorizontalAlignment="Left" Margin="347,27,0,0" VerticalAlignment="Top" Width="92" FontSize="20"/>
+        <Label x:Name="Schedule" Content="Shedules" HorizontalAlignment="Left" Margin="597,23,0,0" VerticalAlignment="Top" Width="92" FontSize="20"/>
+        <Button x:Name="Manual" Content="Manual feeding" HorizontalAlignment="Left" Margin="521,328,0,0" VerticalAlignment="Top" Width="177" Height="32" Background="#FFEDFFEC"/>
+        <Label x:Name="time" Content="" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="49"/>
+
+    </Grid>
+</Window>

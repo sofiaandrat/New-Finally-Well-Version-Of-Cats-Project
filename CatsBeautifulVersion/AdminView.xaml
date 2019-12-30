@@ -1,0 +1,23 @@
+﻿<Window x:Class="CatsBeautifulVersion.AdminView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CatsBeautifulVersion"
+        mc:Ignorable="d"
+        Title="AdminView" Height="450" Width="800">
+    <Grid>
+        <Label Content="Users" HorizontalAlignment="Left" Margin="28.4,16.45,0,0" VerticalAlignment="Top" Width="231.2" FontFamily="Yu Gothic UI" FontSize="20"/>
+        <Label Content="Queue of registration" HorizontalAlignment="Left" Margin="28.4,295.4,0,0" VerticalAlignment="Top" Width="231.2" FontFamily="Yu Gothic UI" FontSize="20"/>
+        <Label Content="Feeders" HorizontalAlignment="Left" Margin="284.4,16.45,0,0" VerticalAlignment="Top" Width="231.2" FontFamily="Yu Gothic UI" FontSize="20"/>
+        <DataGrid x:Name="Users" HorizontalAlignment="Left" Height="232" Margin="28,58,0,0" VerticalAlignment="Top" Width="232" Background="White" BorderBrush="#FF020202" SelectionChanged="Users_SelectionChanged" ItemsSource="{Binding Path=Customers}"
+                  SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}"/>
+        <DataGrid x:Name="Registration" HorizontalAlignment="Left" Height="70" Margin="28,332,0,0" VerticalAlignment="Top" Width="232" BorderBrush="Black" Foreground="Black" ScrollViewer.CanContentScroll="True" HorizontalGridLinesBrush="#FF1D1B1B" VerticalGridLinesBrush="#FF1D1B1B" SelectionChanged="Registration_SelectionChanged" ItemsSource="{Binding Path=Customers}"
+                  SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}"/>
+        <DataGrid x:Name="Feeders" HorizontalAlignment="Left" Height="344" Margin="284,58,0,0" VerticalAlignment="Top" Width="208" SelectionChanged="Feeders_SelectionChanged" ItemsSource="{Binding Path=Customers}"
+                  SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}"/>
+        <DataGrid x:Name="tags" HorizontalAlignment="Left" Height="100" Margin="518,58,0,0" VerticalAlignment="Top" Width="162"/>
+        <Label Content="Tags" HorizontalAlignment="Left" Margin="521,16,-42.4,0" VerticalAlignment="Top" Width="231" FontFamily="Yu Gothic UI" FontSize="20"/>
+
+    </Grid>
+</Window>

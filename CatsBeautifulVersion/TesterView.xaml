@@ -1,0 +1,29 @@
+﻿<Window x:Class="CatsBeautifulVersion.TesterView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CatsBeautifulVersion"
+        mc:Ignorable="d"
+        Title="TesterView" Height="450" Width="800">
+    <Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="420" Margin="0,0,-0.4,0" Stroke="Black" VerticalAlignment="Top" Width="794"/>
+        <Slider x:Name="Speed" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Height="60" Width="337" Minimum="1" Maximum="60"/>
+        <Button x:Name="Switch" Content="ON" HorizontalAlignment="Left" Margin="688,30,0,0" VerticalAlignment="Top" Width="75" BorderBrush="Black" RenderTransformOrigin="0.5,0.5" Background="#FFB6E2B3"/>
+        <Label Content="Frequency " HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
+        <Label x:Name="SliderLabel" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,90,0,0" Width="23" FontSize="14"/>
+        <Label x:Name="SliderLabel_Copy" Content="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="326,90,0,0" Width="28" FontSize="14"/>
+        <Label x:Name="Timer" Content="" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Width="46"/>
+        <Label Content="Speed:" HorizontalAlignment="Left" Margin="74,3,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="SpeedLabel" Content="" HorizontalAlignment="Left" Margin="125,3,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="Data" HorizontalAlignment="Left" Height="249" Margin="416,122,0,0" VerticalAlignment="Top" Width="327"/>
+        <Label Content="Add Food" HorizontalAlignment="Left" Margin="12,154,0,0" VerticalAlignment="Top" Width="85" FontSize="16"/>
+        <TextBox x:Name="id" HorizontalAlignment="Left" Height="23" Margin="83,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
+        <TextBox x:Name="amount" HorizontalAlignment="Left" Height="23" Margin="232,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86"/>
+        <Label Content="Feeder Id" HorizontalAlignment="Left" Margin="12,205,0,0" VerticalAlignment="Top" Width="71"/>
+        <Label Content="Amount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="174,203,0,0"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="326,208,0,0" VerticalAlignment="Top" Width="57" Background="#FFD3CF9C"/>
+        <Label x:Name="IncorrectInput" Content="Data is incorresct" HorizontalAlignment="Left" Margin="18,236,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
+
+    </Grid>
+</Window>
