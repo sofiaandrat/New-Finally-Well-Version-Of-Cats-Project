@@ -41,6 +41,7 @@
     <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
@@ -54,7 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessRegistrationPresenter.cs" />
     <Compile Include="AdminPresenter.cs" />
+    <Compile Include="IAccessRegistration.cs" />
     <Compile Include="IAdminView.cs" />
     <Compile Include="IMainView.cs" />
     <Compile Include="IRegistrationView.cs" />

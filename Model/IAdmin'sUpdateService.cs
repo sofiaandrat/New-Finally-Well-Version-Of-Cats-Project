@@ -10,7 +10,14 @@ namespace Model
     public interface IAdmin_sUpdateService
     {
         event Action RegistrationQueueChange;
+        event Action UsersListChange;
+        event Action FeedersListChange;
+        event Action TagsListChange;
         DataTable AskRegistrationQueue();
-       // void StartUpdate();
+        DataTable AskUsersList();
+        DataTable AskFeedersList();
+        DataTable AskTagsList();
+        void ChangeSelectedFeeder(int feederId);
+        void ChangeSelectedUser(int userId);
     }
 }

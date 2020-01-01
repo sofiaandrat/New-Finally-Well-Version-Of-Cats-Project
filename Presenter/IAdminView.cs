@@ -10,5 +10,12 @@ namespace Presenter
     public interface IAdminView:IUserProfilerView
     {
         void ShowRegistrationQueue(DataTable dataTable);
+        void ShowUsersList(DataTable dataTable);
+        void ShowFeedersList(DataTable dataTable);
+        void ShowTagsLists(DataTable dataTable);
+
+        event Action selectedFeederWasChanged;
+        event Action selectedUserWasChanged;
+        event Action AskRegistration;
     }
 }

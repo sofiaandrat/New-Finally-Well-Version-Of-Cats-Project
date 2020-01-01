@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
@@ -36,6 +37,36 @@ namespace Model.DataBase
             CloseConnection();
             mutex.ReleaseMutex();
             return data;
+        }
+
+        public DataTable UserList()
+        {
+            mutex.WaitOne();
+            string query = "SELECT id, name, email, typeId FROM users";
+            SQLiteCommand myCommand = new SQLiteCommand(query, myConnection);
+            OpenConnection();
+            myCommand.ExecuteNonQuery();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(myCommand);
+            DataTable dt = new DataTable("users");
+            adapter.Fill(dt);
+            CloseConnection();
+            mutex.ReleaseMutex();
+            return dt;
+        }
+
+        public void Insert(string name, string email, string password, int typeId)
+        {
+            mutex.WaitOne();
+            string query = "INSERT INTO users ('name', 'email', 'hash_password', 'typeId') VALUES (@name, @email, @hash_password, @typeId)";
+            SQLiteCommand myCommand = new SQLiteCommand(query, myConnection);
+            OpenConnection();
+            myCommand.Parameters.AddWithValue("@name", name);
+            myCommand.Parameters.AddWithValue("@email", email);
+            myCommand.Parameters.AddWithValue("@hash_password", password);
+            myCommand.Parameters.AddWithValue("@typeId", typeId);
+            myCommand.ExecuteNonQuery();
+            CloseConnection();
+            mutex.ReleaseMutex();
         }
     }
 }

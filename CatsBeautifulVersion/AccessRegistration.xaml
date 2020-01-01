@@ -1,0 +1,15 @@
+﻿<Window x:Class="CatsBeautifulVersion.AccessRegistration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CatsBeautifulVersion"
+        mc:Ignorable="d"
+         Title="AccessRegistration" Height="172.305" Width="450.372" Background="#FFE0E0E0">
+    <Grid Margin="0,0,-0.4,233">
+        <Label Content="Do you want to register this user?" HorizontalAlignment="Left" Height="65" Margin="28,16,0,-81" VerticalAlignment="Top" Width="402" FontSize="25"/>
+        <Button x:Name="Access" Content="YES" HorizontalAlignment="Left" Height="40" Margin="46,74,0,-114" VerticalAlignment="Top" Width="159" Click="Access_Click" Background="#FF5FB760"/>
+        <Button x:Name="Reject" Content="NO" HorizontalAlignment="Left" Height="40" Margin="246,74,0,-114" VerticalAlignment="Top" Width="159" Click="Reject_Click" Background="#FFC25454"/>
+
+    </Grid>
+</Window>

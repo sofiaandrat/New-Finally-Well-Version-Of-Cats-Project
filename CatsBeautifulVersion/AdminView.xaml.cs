@@ -21,6 +21,12 @@ namespace CatsBeautifulVersion
     /// </summary>
     public partial class AdminView : Window, IAdminView, IUserProfilerView, IView
     {
+        private object lastSender;
+
+        public event Action selectedFeederWasChanged;
+        public event Action selectedUserWasChanged;
+        public event Action AskRegistration;
+
         public AdminView()
         {
             InitializeComponent();
@@ -28,25 +34,50 @@ namespace CatsBeautifulVersion
 
         private void Feeders_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            lastSender = sender;
+            selectedFeederWasChanged?.Invoke();
         }
 
         private void Registration_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            lastSender = sender;
+            AskRegistration?.Invoke();
         }
 
         private void Users_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            lastSender = sender;
+            selectedUserWasChanged?.Invoke();
         }
 
         public void ShowRegistrationQueue(DataTable registrationQueue)
         {
-            Registration.Dispatcher.BeginInvoke(new Action(delegate ()
+            UpdateTable(registrationQueue, Registration);
+        }
+
+        public void ShowUsersList(DataTable usersList)
+        {
+            UpdateTable(usersList, Users);
+        }
+
+        public void ShowFeedersList(DataTable feedersList)
+        {
+            UpdateTable(feedersList, Feeders);
+        }
+
+        public void ShowTagsLists(DataTable tagsList)
+        {
+            UpdateTable(tagsList, tags);
+        }
+
+        public void UpdateTable(DataTable dataTable, DataGrid dataGrid)
+        {
+            dataGrid.Dispatcher.BeginInvoke(new Action(delegate ()
             {
-                Registration.ItemsSource = registrationQueue.DefaultView;
+                dataGrid.ItemsSource = dataTable.DefaultView;
             }));
         }
+
+        public object AskLastSender() => lastSender;
     }
 }

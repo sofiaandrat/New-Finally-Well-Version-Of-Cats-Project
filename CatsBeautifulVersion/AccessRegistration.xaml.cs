@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,25 +16,24 @@ using Presenter;
 namespace CatsBeautifulVersion
 {
     /// <summary>
-    /// Логика взаимодействия для TesterView.xaml
+    /// Логика взаимодействия для AccessRegistration.xaml
     /// </summary>
-    public partial class TesterView : Window, ITesterView, IView, IUserProfilerView
+    public partial class AccessRegistration : Window, IAccessRegistration, IView
     {
-        private object lastSender;
-
-        public TesterView()
+        public event Action Registration;
+        public AccessRegistration()
         {
             InitializeComponent();
         }
 
-        public void UpdateTable(DataTable dataTable, DataGrid dataGrid)
+        private void Reject_Click(object sender, RoutedEventArgs e)
         {
-            dataGrid.Dispatcher.BeginInvoke(new Action(delegate ()
-            {
-                dataGrid.ItemsSource = dataTable.DefaultView;
-            }));
+            Close();
         }
 
-        public object AskLastSender() => lastSender;
+        private void Access_Click(object sender, RoutedEventArgs e)
+        {
+            Registration?.Invoke();
+        }
     }
 }

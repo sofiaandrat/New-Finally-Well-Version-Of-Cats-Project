@@ -18,6 +18,7 @@ namespace Presenter
             this.kernel = kernel;
 
             kernel.Bind<IAdmin_sUpdateService>().To<Admin_sUpdateService>();
+            kernel.Bind<IAdminService>().To<AdminService>();
 
             switch(userProfiler.TypeId)
             {
@@ -25,7 +26,7 @@ namespace Presenter
                     view = kernel.Get<IUserView>();
                     break;
                 case 2:
-                    AdminPresenter adminPresenter = new AdminPresenter(kernel, kernel.Get<IAdminView>(), kernel.Get<IAdmin_sUpdateService>());
+                    AdminPresenter adminPresenter = new AdminPresenter(kernel, kernel.Get<IAdminView>(), kernel.Get<IAdmin_sUpdateService>(), kernel.Get<IAdminService>());
                     break;
                 case 3:
                     view = kernel.Get<ITesterView>();

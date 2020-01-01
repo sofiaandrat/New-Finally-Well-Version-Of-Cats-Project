@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace CatsBeautifulVersion
     /// </summary>
     public partial class UserView : Window, IUserView, IUserProfilerView, IView
     {
+        private object lastSender;
+
         public UserView()
         {
             InitializeComponent();
@@ -31,5 +34,15 @@ namespace CatsBeautifulVersion
         {
 
         }
+
+        public void UpdateTable(DataTable dataTable, DataGrid dataGrid)
+        {
+            dataGrid.Dispatcher.BeginInvoke(new Action(delegate ()
+            {
+                dataGrid.ItemsSource = dataTable.DefaultView;
+            }));
+        }
+
+        public object AskLastSender() => lastSender;
     }
 }

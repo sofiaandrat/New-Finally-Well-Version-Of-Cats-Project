@@ -55,11 +55,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin%27sUpdateService.cs" />
+    <Compile Include="AdminService.cs" />
     <Compile Include="DataBase\DataBase.cs" />
+    <Compile Include="DataBase\FeederDataBase.cs" />
+    <Compile Include="DataBase\TagsDataBase.cs" />
     <Compile Include="DataBase\UserDataBase.cs" />
     <Compile Include="Elements\IUserProfiler.cs" />
     <Compile Include="Elements\UserProfiler.cs" />
     <Compile Include="IAdmin%27sUpdateService.cs" />
+    <Compile Include="IAdminService.cs" />
     <Compile Include="ILoginService.cs" />
     <Compile Include="IRegistrationService.cs" />
     <Compile Include="LoginService.cs" />

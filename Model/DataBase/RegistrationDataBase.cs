@@ -57,7 +57,7 @@ namespace Model.DataBase
         public DataTable RegistrationList()
         {
             mutex.WaitOne();
-            string query = "SELECT Regid, name, email, typeId FROM registration";
+            string query = "SELECT name, email, typeId, hash_password FROM registration";
             SQLiteCommand myCommand = new SQLiteCommand(query, myConnection);
             OpenConnection();
             myCommand.ExecuteNonQuery();
@@ -67,6 +67,18 @@ namespace Model.DataBase
             CloseConnection();
             mutex.ReleaseMutex();
             return dt;
+        }
+
+        public void Delete(string regName)
+        {
+            mutex.WaitOne();
+            string query = "DELETE FROM registration WHERE name = @name";
+            SQLiteCommand myCommand = new SQLiteCommand(query, myConnection);
+            OpenConnection();
+            myCommand.Parameters.AddWithValue("@name", regName);
+            myCommand.ExecuteNonQuery();
+            CloseConnection();
+            mutex.ReleaseMutex();
         }
     }
 }
