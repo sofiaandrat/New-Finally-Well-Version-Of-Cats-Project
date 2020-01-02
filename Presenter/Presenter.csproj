@@ -68,6 +68,7 @@
     <Compile Include="MainPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationPresenter.cs" />
+    <Compile Include="UserPresenter.cs" />
     <Compile Include="UserProfilerPresenter.cs" />
   </ItemGroup>
   <ItemGroup>

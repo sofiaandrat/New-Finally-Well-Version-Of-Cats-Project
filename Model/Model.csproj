@@ -57,7 +57,9 @@
     <Compile Include="Admin%27sUpdateService.cs" />
     <Compile Include="AdminService.cs" />
     <Compile Include="DataBase\DataBase.cs" />
+    <Compile Include="DataBase\EventDataBase.cs" />
     <Compile Include="DataBase\FeederDataBase.cs" />
+    <Compile Include="DataBase\ScheduleDataBase.cs" />
     <Compile Include="DataBase\TagsDataBase.cs" />
     <Compile Include="DataBase\UserDataBase.cs" />
     <Compile Include="Elements\IUserProfiler.cs" />
@@ -66,10 +68,12 @@
     <Compile Include="IAdminService.cs" />
     <Compile Include="ILoginService.cs" />
     <Compile Include="IRegistrationService.cs" />
+    <Compile Include="IUser%27sUpdateService.cs" />
     <Compile Include="LoginService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataBase\RegistrationDataBase.cs" />
     <Compile Include="RegistrationService.cs" />
+    <Compile Include="User%27sUpdateService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
